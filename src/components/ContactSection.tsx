@@ -3,16 +3,10 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, Clock, Send } from "lucide-react"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  })
+  const [formData, setFormData] = useState({ name: "", phone: "" })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
@@ -30,14 +24,11 @@ export function ContactSection() {
     }
     setSending(false)
     setSent(true)
-    setFormData({ name: "", email: "", phone: "", message: "" })
+    setFormData({ name: "", phone: "" })
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   return (
@@ -54,7 +45,7 @@ export function ContactSection() {
             Давайте <span className="text-primary">разберёмся вместе</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Напишите нам — расскажем, что нужно сделать для вашей товарной группы, и подберём подходящий тариф.
+            Оставьте имя и телефон — перезвоним и ответим на все вопросы бесплатно.
           </p>
         </div>
 
@@ -65,41 +56,23 @@ export function ContactSection() {
                 <CardTitle className="text-2xl">Получить консультацию</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Имя *
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Ваше имя"
-                        required
-                        className="transition-all focus:scale-[1.02]"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        E-mail *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.ru"
-                        required
-                        className="transition-all focus:scale-[1.02]"
-                      />
-                    </div>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium">
+                      Имя *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Ваше имя"
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium">
-                      Телефон
+                      Телефон *
                     </label>
                     <Input
                       id="phone"
@@ -108,21 +81,7 @@ export function ContactSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+7 900 123-45-67"
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Ваш вопрос
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Расскажите о вашей товарной группе или опишите проблему..."
-                      rows={6}
-                      className="transition-all focus:scale-[1.02]"
+                      required
                     />
                   </div>
                   {sent && (
@@ -162,7 +121,9 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Телефон</h3>
-                    <p className="text-sm text-muted-foreground">+7 (495) 320-33-85</p>
+                    <a href="tel:+74953203385" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      +7 (495) 320-33-85
+                    </a>
                   </div>
                 </div>
               </CardContent>

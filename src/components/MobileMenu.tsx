@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Menu } from "lucide-react"
+import { Menu, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 
@@ -39,6 +39,15 @@ export function MobileMenu() {
             </a>
           ))}
         </nav>
+        <div className="mt-8 pt-6 border-t border-border">
+          <a
+            href="tel:+74953203385"
+            className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-semibold hover:bg-primary/20 transition-colors"
+          >
+            <Phone className="h-5 w-5 shrink-0" />
+            +7 (495) 320-33-85
+          </a>
+        </div>
       </SheetContent>
     </Sheet>
   )
