@@ -13,10 +13,24 @@ export function ContactSection() {
     phone: "",
     message: "",
   })
+  const [sending, setSending] = useState(false)
+  const [sent, setSent] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("[v0] Form submitted:", formData)
+    setSending(true)
+    try {
+      await fetch("https://functions.poehali.dev/def8d0b8-782d-434e-8032-3b3d363b1f1b", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, package: "Не выбран" }),
+      })
+    } catch (err) {
+      console.error("Contact form error:", err)
+    }
+    setSending(false)
+    setSent(true)
+    setFormData({ name: "", email: "", phone: "", message: "" })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -111,9 +125,14 @@ export function ContactSection() {
                       className="transition-all focus:scale-[1.02]"
                     />
                   </div>
-                  <Button type="submit" size="lg" className="w-full sm:w-auto group">
+                  {sent && (
+                    <div className="p-4 rounded-lg bg-primary/10 text-primary font-medium text-sm">
+                      ✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.
+                    </div>
+                  )}
+                  <Button type="submit" size="lg" className="w-full sm:w-auto group" disabled={sending}>
                     <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    Отправить
+                    {sending ? "Отправляем..." : "Отправить"}
                   </Button>
                 </form>
               </CardContent>
@@ -129,7 +148,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">E-mail</h3>
-                    <p className="text-sm text-muted-foreground">info@1cmatrix.ru</p>
+                    <p className="text-sm text-muted-foreground">info@kassa-business.ru</p>
                   </div>
                 </div>
               </CardContent>
@@ -143,7 +162,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Телефон</h3>
-                    <p className="text-sm text-muted-foreground">+7 (XXX) XXX-XX-XX</p>
+                    <p className="text-sm text-muted-foreground">+7 (495) 320-33-85</p>
                   </div>
                 </div>
               </CardContent>

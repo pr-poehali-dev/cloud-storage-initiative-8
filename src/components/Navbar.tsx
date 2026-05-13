@@ -2,6 +2,7 @@ import { ThemeToggle } from "@/components/ThemeToggle"
 import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
+import { Phone } from "lucide-react"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -34,7 +35,7 @@ export function Navbar() {
               Услуги
             </a>
             <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
-              Портфолио
+              Кейсы
             </a>
             <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
               Тарифы
@@ -44,7 +45,14 @@ export function Navbar() {
             </a>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
+            <a
+              href="tel:+74953203385"
+              className="hidden md:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              +7 (495) 320-33-85
+            </a>
             <ThemeToggle />
             <MobileMenu />
           </div>

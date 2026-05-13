@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Submit lead",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест",
+        "phone": "+7 999 000-00-00",
+        "email": "test@test.ru",
+        "company": "ООО Тест",
+        "package": "Старт",
+        "message": "Тестовая заявка"
+      },
+      "expectedStatus": 200
+    }
+  ]
+}
