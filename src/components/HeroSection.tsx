@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, Sparkles, Phone } from "lucide-react"
 import { useEffect, useState } from "react"
 import Icon from "@/components/ui/icon"
 
@@ -106,6 +106,14 @@ export function HeroSection() {
         <p className="text-xl sm:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
           Генерируем коды маркировки, оформляем УПД и берём на себя всю техническую работу с «Честным знаком» — вы занимаетесь бизнесом.
         </p>
+
+        <a
+          href="tel:+74953203385"
+          className="inline-flex sm:hidden items-center gap-2 mb-6 px-5 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-base shadow-lg shadow-primary/25 hover:bg-primary/90 transition-colors animate-fade-in-up"
+        >
+          <Phone className="h-4 w-4" />
+          +7 (495) 320-33-85
+        </a>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-200 mb-12">
           <Button
