@@ -23,11 +23,11 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="/" className="hover:opacity-80 transition-opacity">
+          <a href="/" className="hover:opacity-80 transition-opacity flex-1">
             <Logo />
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
             <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
               О нас
             </a>
@@ -45,7 +45,7 @@ export function Navbar() {
             </a>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-1 justify-end">
             <a
               href="tel:+74953203385"
               className="hidden md:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"

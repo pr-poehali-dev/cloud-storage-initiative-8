@@ -49,56 +49,54 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <Card className="border-none shadow-xl bg-background">
-              <CardHeader>
-                <CardTitle className="text-2xl">Получить консультацию</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Имя *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Ваше имя"
-                      required
-                    />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card className="border-none shadow-xl bg-background">
+            <CardHeader>
+              <CardTitle className="text-2xl">Получить консультацию</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Имя *
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Ваше имя"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-medium">
+                    Телефон *
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+7 900 123-45-67"
+                    required
+                  />
+                </div>
+                {sent && (
+                  <div className="p-4 rounded-lg bg-primary/10 text-primary font-medium text-sm">
+                    ✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium">
-                      Телефон *
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+7 900 123-45-67"
-                      required
-                    />
-                  </div>
-                  {sent && (
-                    <div className="p-4 rounded-lg bg-primary/10 text-primary font-medium text-sm">
-                      ✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.
-                    </div>
-                  )}
-                  <Button type="submit" size="lg" className="w-full sm:w-auto group" disabled={sending}>
-                    <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    {sending ? "Отправляем..." : "Отправить"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                )}
+                <Button type="submit" size="lg" className="w-full sm:w-auto group" disabled={sending}>
+                  <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  {sending ? "Отправляем..." : "Отправить"}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
             <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
