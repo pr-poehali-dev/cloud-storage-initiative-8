@@ -46,8 +46,10 @@ export function ServicesSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 animate-pulse" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mx-auto block w-fit">
-          Наши услуги
+        <div className="flex justify-center mb-4">
+          <div className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+            Наши услуги
+          </div>
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
           Всё для работы с <span className="text-primary">Честным знаком</span>
