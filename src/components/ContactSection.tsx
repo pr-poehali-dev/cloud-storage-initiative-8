@@ -138,9 +138,9 @@ export function ContactSection() {
                   <div>
                     <h3 className="font-semibold mb-1">Время работы</h3>
                     <p className="text-sm text-muted-foreground">
-                      Пн - Пт: 9:00 - 18:00
+                      Пн - Пт: 10:00 - 19:00
                       <br />
-                      Выходные: по договоренности
+                      Выходные: 12:00 - 18:00
                     </p>
                   </div>
                 </div>
