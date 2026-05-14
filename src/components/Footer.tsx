@@ -1,3 +1,5 @@
+import { Send } from "lucide-react"
+
 export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30 py-12 px-4 sm:px-6 lg:px-8">
@@ -8,6 +10,15 @@ export function Footer() {
             <p className="text-sm text-muted-foreground leading-relaxed">
               Генерация кодов маркировки, оформление УПД и техническая поддержка по «Честному знаку».
             </p>
+            <a
+              href="https://t.me/Matrix1C"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-primary font-semibold hover:text-primary/80 transition-colors"
+            >
+              <Send className="h-4 w-4" />
+              @Matrix1C в Telegram
+            </a>
             <p className="text-sm text-muted-foreground mt-4">
               © 2025 1C Matrix. Все права защищены.
             </p>

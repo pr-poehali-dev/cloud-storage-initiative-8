@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Mail, Phone, Clock, Send } from "lucide-react"
+import { Mail, Phone, Clock, Send, MessageCircle } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", phone: "" })
@@ -123,6 +123,22 @@ export function ContactSection() {
                     <h3 className="font-semibold mb-1">Телефон</h3>
                     <a href="tel:+74953203385" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                       +7 (495) 320-33-85
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
+                    <MessageCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Telegram</h3>
+                    <a href="https://t.me/Matrix1C" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      @Matrix1C
                     </a>
                   </div>
                 </div>

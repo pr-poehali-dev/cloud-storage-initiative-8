@@ -2,7 +2,7 @@ import { ThemeToggle } from "@/components/ThemeToggle"
 import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
-import { Phone } from "lucide-react"
+import { Phone, Send } from "lucide-react"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -52,6 +52,15 @@ export function Navbar() {
             >
               <Phone className="h-4 w-4" />
               +7 (495) 320-33-85
+            </a>
+            <a
+              href="https://t.me/Matrix1C"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              <Send className="h-4 w-4" />
+              Telegram
             </a>
             <ThemeToggle />
             <MobileMenu />
