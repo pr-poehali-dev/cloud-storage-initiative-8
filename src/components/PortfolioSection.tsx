@@ -9,6 +9,8 @@ const cases = [
     description:
       "Помогли производителю одежды из Иваново полностью перейти на маркировку: зарегистрировали в «Честном знаке», настроили оборудование, обучили сотрудников. Теперь генерируем 3 000 кодов ежемесячно.",
     tags: ["Одежда", "Обувь", "Генерация кодов", "УПД"],
+    stat: "2 дня",
+    statLabel: "до полного запуска",
   },
   {
     icon: "Droplets",
@@ -17,6 +19,8 @@ const cases = [
     description:
       "Сопроводили оптовую компанию при введении обязательной маркировки питьевой воды. Настроили процессы, интегрировали с 1С, обеспечили бесперебойную генерацию кодов с первого дня.",
     tags: ["Вода", "1С", "Интеграция", "Оптовая торговля"],
+    stat: "0 ошибок",
+    statLabel: "при переходе",
   },
   {
     icon: "Pill",
@@ -25,6 +29,8 @@ const cases = [
     description:
       "Подключили небольшую аптечную сеть к системе мониторинга движения лекарственных препаратов. Настроили сканирование при приёмке и продаже, обеспечили поддержку при проверках.",
     tags: ["Фармацевтика", "МДЛП", "Аптека", "Поддержка"],
+    stat: "3 точки",
+    statLabel: "подключено за неделю",
   },
   {
     icon: "Milk",
@@ -33,6 +39,8 @@ const cases = [
     description:
       "Помогли небольшому фермерскому хозяйству разобраться с обязательной маркировкой молочки. Оформляем документы и генерируем коды — они занимаются производством.",
     tags: ["Молоко", "Фермерство", "УПД", "Сопровождение"],
+    stat: "100%",
+    statLabel: "без штрафов",
   },
 ]
 
@@ -59,6 +67,10 @@ export function PortfolioSection() {
                   size={80}
                   className="text-primary/40 group-hover:text-primary/60 group-hover:scale-110 transition-all duration-500"
                 />
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 text-right">
+                  <div className="text-3xl font-extrabold text-primary leading-tight">{item.stat}</div>
+                  <div className="text-xs text-muted-foreground font-medium mt-0.5">{item.statLabel}</div>
+                </div>
               </div>
               <CardContent className="p-6">
                 <p className="text-sm text-primary font-semibold mb-2">{item.category}</p>
