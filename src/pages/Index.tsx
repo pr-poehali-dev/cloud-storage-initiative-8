@@ -7,8 +7,11 @@ import { ClientTypesSection } from "@/components/ClientTypesSection"
 import { TestimonialsSection } from "@/components/TestimonialsSection"
 import { PortfolioSection } from "@/components/PortfolioSection"
 import { PricingSection } from "@/components/PricingSection"
+import { FaqSection } from "@/components/FaqSection"
 import { ContactSection } from "@/components/ContactSection"
 import { Footer } from "@/components/Footer"
+import { TelegramWidget } from "@/components/TelegramWidget"
+import { OfferPopup } from "@/components/OfferPopup"
 
 export default function Index() {
   return (
@@ -22,8 +25,11 @@ export default function Index() {
       <TestimonialsSection />
       <PortfolioSection />
       <PricingSection />
+      <FaqSection />
       <ContactSection />
       <Footer />
+      <TelegramWidget />
+      <OfferPopup />
     </main>
   )
 }
