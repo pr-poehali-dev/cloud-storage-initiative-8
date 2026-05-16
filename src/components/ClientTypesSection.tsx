@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Card, CardContent } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
 
@@ -8,6 +9,7 @@ const clientTypes = [
     description:
       "Помогаем наладить маркировку прямо на производстве: от регистрации в «Честном знаке» до печати кодов на линии. Всё работает без сбоев — вы просто выпускаете товар.",
     badge: "Производство",
+    href: "/manufacturers",
   },
   {
     icon: "Ship",
@@ -15,6 +17,7 @@ const clientTypes = [
     description:
       "Организуем ввод в оборот иностранной продукции: маркируем до растаможки или сразу после. Документы в порядке, товар легально на рынке РФ.",
     badge: "Импорт",
+    href: "/importers",
   },
   {
     icon: "ShoppingCart",
@@ -22,6 +25,7 @@ const clientTypes = [
     description:
       "Работаем с продавцами на Wildberries, Ozon и других маркетплейсах. Обеспечиваем корректную маркировку под требования площадок — без блокировок и штрафов.",
     badge: "Маркетплейсы",
+    href: "/sellers",
   },
 ]
 
@@ -46,27 +50,31 @@ export function ClientTypesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {clientTypes.map((client) => (
-            <Card
-              key={client.title}
-              className="group border-2 border-border hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-background"
-            >
-              <CardContent className="p-8">
-                <div className="mb-5 inline-flex p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
-                  <Icon name={client.icon} className="h-7 w-7" />
-                </div>
+            <Link key={client.title} to={client.href} className="block">
+              <Card className="group border-2 border-border hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-background h-full">
+                <CardContent className="p-8">
+                  <div className="mb-5 inline-flex p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
+                    <Icon name={client.icon} className="h-7 w-7" />
+                  </div>
 
-                <div className="mb-3">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    {client.badge}
-                  </span>
-                </div>
+                  <div className="mb-3">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
+                      {client.badge}
+                    </span>
+                  </div>
 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                  {client.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">{client.description}</p>
-              </CardContent>
-            </Card>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    {client.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">{client.description}</p>
+
+                  <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                    Подробнее
+                    <Icon name="ArrowRight" size={16} />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
