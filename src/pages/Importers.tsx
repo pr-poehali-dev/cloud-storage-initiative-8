@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
+import { ContactSection } from "@/components/ContactSection"
 
 const steps = [
   {
@@ -134,18 +135,7 @@ export default function Importers() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Планируете импортную поставку?</h2>
-          <p className="text-primary-foreground/80 text-lg mb-8">
-            Свяжитесь с нами до отгрузки — успеем подготовить всё заранее
-          </p>
-          <Button size="lg" variant="secondary" asChild>
-            <a href="/#contact">Оставить заявку</a>
-          </Button>
-        </div>
-      </section>
+      <ContactSection />
 
       <Footer />
     </main>
