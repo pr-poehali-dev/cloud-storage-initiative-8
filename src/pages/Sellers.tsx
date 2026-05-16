@@ -77,8 +77,8 @@ export default function Sellers() {
             Обеспечиваем корректную маркировку под требования Wildberries, Ozon и других площадок. Без блокировок карточек, без штрафов, без лишней головной боли.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" asChild>
-              <a href="/#contact">Получить консультацию</a>
+            <Button size="lg" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+              Получить консультацию
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="tel:+74953203385">+7 (495) 320-33-85</a>

@@ -75,8 +75,8 @@ export default function Importers() {
             Организуем ввод в оборот иностранной продукции: маркируем до растаможки или сразу после. Документы в порядке — товар легально на рынке РФ с первого дня.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" asChild>
-              <a href="/#contact">Получить консультацию</a>
+            <Button size="lg" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+              Получить консультацию
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="tel:+74953203385">+7 (495) 320-33-85</a>

@@ -75,8 +75,8 @@ export default function Manufacturers() {
             Настраиваем маркировку «Честный знак» прямо на вашем производстве: от регистрации в системе до печати кодов на линии. Вы продолжаете выпускать товар — мы берём на себя всё остальное.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" asChild>
-              <a href="/#contact">Получить консультацию</a>
+            <Button size="lg" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+              Получить консультацию
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="tel:+74953203385">+7 (495) 320-33-85</a>
