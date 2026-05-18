@@ -52,7 +52,83 @@ const benefits = [
   { icon: "BadgeCheck", title: "Соответствие закону", description: "Всегда актуальные требования регулятора — без штрафов" },
 ]
 
+const pains = [
+  { icon: "AlertTriangle", text: "Не знаете, с чего начать — регуляторика кажется сложной" },
+  { icon: "Clock", text: "Боитесь остановки производства из-за проблем с маркировкой" },
+  { icon: "FileX", text: "Уже получили предписание или предупреждение от проверяющих" },
+  { icon: "Settings", text: "1С есть, но как подключить «Честный знак» — непонятно" },
+  { icon: "Users", text: "Нет специалиста, который разбирается в маркировке" },
+  { icon: "TrendingDown", text: "Конкуренты уже работают легально, а вы рискуете штрафами" },
+]
+
+const stats = [
+  { value: "500+", label: "производителей на сопровождении" },
+  { value: "7 дней", label: "средний срок запуска маркировки" },
+  { value: "0 ₽", label: "штрафов у наших клиентов" },
+  { value: "99%", label: "клиентов продлевают договор" },
+]
+
+const tariffs = [
+  {
+    name: "Старт",
+    price: "от 15 000 ₽",
+    period: "единоразово",
+    description: "Для небольших производств с одной товарной группой",
+    features: [
+      "Регистрация в «Честном знаке»",
+      "Подключение одной товарной группы",
+      "Настройка получения кодов",
+      "Инструкция для сотрудников",
+      "30 дней поддержки",
+    ],
+    highlighted: false,
+    cta: "Выбрать Старт",
+  },
+  {
+    name: "Бизнес",
+    price: "от 35 000 ₽",
+    period: "единоразово",
+    description: "Для производств с несколькими группами товаров и 1С",
+    features: [
+      "Всё из тарифа «Старт»",
+      "До 3 товарных групп",
+      "Интеграция с 1С",
+      "Настройка печати на линии",
+      "Оформление УПД при отгрузке",
+      "3 месяца поддержки",
+    ],
+    highlighted: true,
+    cta: "Выбрать Бизнес",
+  },
+  {
+    name: "Корпорат",
+    price: "по запросу",
+    period: "индивидуально",
+    description: "Для крупных производств с высокими объёмами и несколькими площадками",
+    features: [
+      "Всё из тарифа «Бизнес»",
+      "Неограниченные товарные группы",
+      "Интеграция с ERP/WMS",
+      "Выделенный менеджер",
+      "SLA до 4 часов",
+      "Годовое сопровождение",
+    ],
+    highlighted: false,
+    cta: "Обсудить условия",
+  },
+]
+
+const comparison = [
+  { criterion: "Стоимость ошибки", us: "Берём ответственность на себя", self: "Штрафы от 50 000 ₽", others: "Оплачиваете их ошибки" },
+  { criterion: "Срок запуска", us: "5–10 рабочих дней", self: "1–3 месяца", others: "2–4 недели" },
+  { criterion: "Интеграция с 1С", us: "Включена в стоимость", self: "Нужен программист", others: "Отдельная оплата" },
+  { criterion: "Поддержка", us: "Постоянная, в рабочее время", self: "Только вы сами", others: "По тикетам, долго" },
+  { criterion: "Изменения в законе", us: "Обновляем автоматически", self: "Нужно следить самому", others: "По отдельному договору" },
+]
+
 export default function Manufacturers() {
+  const scrollToContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -75,7 +151,7 @@ export default function Manufacturers() {
             Настраиваем маркировку «Честный знак» прямо на вашем производстве: от регистрации в системе до печати кодов на линии. Вы продолжаете выпускать товар — мы берём на себя всё остальное.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+            <Button size="lg" onClick={scrollToContact}>
               Получить консультацию
             </Button>
             <Button size="lg" variant="outline" asChild>
@@ -85,8 +161,48 @@ export default function Manufacturers() {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Stats */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-1">{s.value}</div>
+                <div className="text-sm text-primary-foreground/70">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pains */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Узнаёте себя?</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              С этими проблемами к нам приходят производители каждый день
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {pains.map((p) => (
+              <div key={p.text} className="flex items-start gap-3 p-4 rounded-xl bg-muted/40 border border-border">
+                <div className="flex-shrink-0 mt-0.5 text-destructive">
+                  <Icon name={p.icon} size={20} />
+                </div>
+                <p className="text-sm leading-relaxed">{p.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-muted-foreground mb-4">Если хотя бы один пункт про вас — давайте разберёмся вместе</p>
+            <Button onClick={scrollToContact}>Получить бесплатную консультацию</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold mb-10 text-center">Почему выбирают нас</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -106,7 +222,7 @@ export default function Manufacturers() {
       </section>
 
       {/* How it works */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Как это работает</h2>
@@ -131,6 +247,94 @@ export default function Manufacturers() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tariffs */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Тарифы</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Выберите подходящий формат — или свяжитесь с нами для индивидуального расчёта
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {tariffs.map((t) => (
+              <Card
+                key={t.name}
+                className={`border-2 shadow-lg relative flex flex-col ${t.highlighted ? "border-primary shadow-xl scale-105" : "border-border"}`}
+              >
+                {t.highlighted && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-bold rounded-full">
+                    Популярный
+                  </div>
+                )}
+                <CardContent className="p-6 flex flex-col flex-1">
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold mb-1">{t.name}</h3>
+                    <div className="text-2xl font-bold text-primary mb-1">{t.price}</div>
+                    <div className="text-xs text-muted-foreground mb-3">{t.period}</div>
+                    <p className="text-sm text-muted-foreground">{t.description}</p>
+                  </div>
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {t.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm">
+                        <Icon name="Check" size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    className="w-full"
+                    variant={t.highlighted ? "default" : "outline"}
+                    onClick={scrollToContact}
+                  >
+                    {t.cta}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Мы vs альтернативы</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Почему производители выбирают нас, а не самостоятельный путь
+            </p>
+          </div>
+          <div className="overflow-x-auto rounded-xl border border-border">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-muted/50">
+                  <th className="text-left p-4 font-semibold">Критерий</th>
+                  <th className="p-4 font-semibold text-primary text-center">Мы</th>
+                  <th className="p-4 font-semibold text-center text-muted-foreground">Самостоятельно</th>
+                  <th className="p-4 font-semibold text-center text-muted-foreground">Другие операторы</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map((row, i) => (
+                  <tr key={row.criterion} className={i % 2 === 0 ? "bg-background" : "bg-muted/20"}>
+                    <td className="p-4 font-medium">{row.criterion}</td>
+                    <td className="p-4 text-center">
+                      <span className="inline-flex items-center gap-1 text-primary font-medium">
+                        <Icon name="CheckCircle" size={15} />
+                        {row.us}
+                      </span>
+                    </td>
+                    <td className="p-4 text-center text-muted-foreground">{row.self}</td>
+                    <td className="p-4 text-center text-muted-foreground">{row.others}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
