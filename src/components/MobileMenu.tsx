@@ -2,18 +2,32 @@ import { useState } from "react"
 import { Menu, Phone, Send, Tag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
-import { Link } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const menuItems = [
-    { href: "#about", label: "О нас" },
-    { href: "#services", label: "Услуги" },
-    { href: "#portfolio", label: "Кейсы" },
-    { href: "#pricing", label: "Тарифы" },
-    { href: "#contact", label: "Контакты" },
+    { id: "about", label: "О нас" },
+    { id: "services", label: "Услуги" },
+    { id: "portfolio", label: "Кейсы" },
+    { id: "pricing", label: "Тарифы" },
+    { id: "contact", label: "Контакты" },
   ]
+
+  const scrollToSection = (id: string) => {
+    setOpen(false)
+    if (location.pathname !== "/") {
+      navigate("/")
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+      }, 100)
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -29,23 +43,21 @@ export function MobileMenu() {
           <SheetDescription>Переход к разделам сайта</SheetDescription>
         </SheetHeader>
         <nav className="flex flex-col gap-1 mt-8">
-          <Link
-            to="/#categories"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2 text-base font-semibold text-primary hover:bg-primary/10 transition-all py-3 px-4 rounded-lg border-b border-border/50"
+          <button
+            onClick={() => scrollToSection("categories")}
+            className="flex items-center gap-2 text-base font-semibold text-primary hover:bg-primary/10 transition-all py-3 px-4 rounded-lg border-b border-border/50 text-left"
           >
             <Tag className="h-4 w-4 shrink-0" />
             Товарные категории
-          </Link>
+          </button>
           {menuItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="text-base font-medium hover:text-primary hover:bg-primary/5 transition-all py-3 px-4 rounded-lg border-b border-border/50 last:border-b-0"
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="text-base font-medium hover:text-primary hover:bg-primary/5 transition-all py-3 px-4 rounded-lg border-b border-border/50 last:border-b-0 text-left"
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
         <div className="mt-8 pt-6 border-t border-border flex flex-col gap-3">

@@ -3,10 +3,12 @@ import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
 import { Phone, Send, Tag } from "lucide-react"
-import { Link } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const scrollToSection = (id: string) => {
+    if (location.pathname !== "/") {
+      navigate("/")
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+      }, 100)
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <nav
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
@@ -24,39 +37,39 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="/" className="hover:opacity-80 transition-opacity flex-1">
+          <a href="/" className="hover:opacity-80 transition-opacity shrink-0">
             <Logo />
           </a>
 
-          <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+          <div className="hidden md:flex items-center gap-5 mx-6">
+            <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               О нас
-            </a>
-            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("services")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               Услуги
-            </a>
-            <Link
-              to="/#categories"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary border border-primary/30 rounded-full px-3 py-1 hover:bg-primary/10 transition-colors"
+            </button>
+            <button
+              onClick={() => scrollToSection("categories")}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary border border-primary/30 rounded-full px-3 py-1 hover:bg-primary/10 transition-colors whitespace-nowrap"
             >
-              <Tag className="h-3.5 w-3.5" />
+              <Tag className="h-3.5 w-3.5 shrink-0" />
               Категории
-            </Link>
-            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("portfolio")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               Кейсы
-            </a>
-            <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("pricing")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               Тарифы
-            </a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection("contact")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               Контакты
-            </a>
+            </button>
           </div>
 
-          <div className="flex items-center gap-4 flex-1 justify-end">
+          <div className="flex items-center gap-3 shrink-0">
             <a
               href="tel:+74953203385"
-              className="hidden md:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              className="hidden lg:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors whitespace-nowrap"
             >
               <Phone className="h-4 w-4" />
               +7 (495) 320-33-85
@@ -65,7 +78,7 @@ export function Navbar() {
               href="https://t.me/Matrix1C"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              className="hidden lg:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
             >
               <Send className="h-4 w-4" />
               Telegram

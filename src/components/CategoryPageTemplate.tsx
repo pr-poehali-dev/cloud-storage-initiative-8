@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Icon from "@/components/ui/icon"
 import { ConsultModal } from "@/components/ConsultModal"
 
@@ -170,14 +171,22 @@ export function CategoryPageTemplate({
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-2xl sm:text-3xl font-bold mb-10">Частые вопросы</h2>
-          <div className="space-y-4">
-            {faq.map((item) => (
-              <div key={item.q} className="rounded-xl border border-border p-5">
-                <p className="font-semibold mb-2">{item.q}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
-              </div>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faq.map((item, i) => (
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="border border-border rounded-xl px-6 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <AccordionTrigger className="text-left font-semibold hover:text-primary hover:no-underline py-5">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
