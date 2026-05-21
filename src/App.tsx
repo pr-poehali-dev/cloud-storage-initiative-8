@@ -14,6 +14,14 @@ import CaseClothing from "./pages/cases/CaseClothing";
 import CaseWater from "./pages/cases/CaseWater";
 import CasePharma from "./pages/cases/CasePharma";
 import CaseDairy from "./pages/cases/CaseDairy";
+import CategoryClothing from "./pages/categories/CategoryClothing";
+import CategoryWater from "./pages/categories/CategoryWater";
+import CategoryPharma from "./pages/categories/CategoryPharma";
+import CategoryDairy from "./pages/categories/CategoryDairy";
+import CategoryTobacco from "./pages/categories/CategoryTobacco";
+import CategoryPerfume from "./pages/categories/CategoryPerfume";
+import CategoryFurniture from "./pages/categories/CategoryFurniture";
+import CategoryTires from "./pages/categories/CategoryTires";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -40,6 +48,14 @@ const App = () => (
             <Route path="/cases/water" element={<CaseWater />} />
             <Route path="/cases/pharma" element={<CasePharma />} />
             <Route path="/cases/dairy" element={<CaseDairy />} />
+            <Route path="/categories/clothing" element={<CategoryClothing />} />
+            <Route path="/categories/water" element={<CategoryWater />} />
+            <Route path="/categories/pharma" element={<CategoryPharma />} />
+            <Route path="/categories/dairy" element={<CategoryDairy />} />
+            <Route path="/categories/tobacco" element={<CategoryTobacco />} />
+            <Route path="/categories/perfume" element={<CategoryPerfume />} />
+            <Route path="/categories/furniture" element={<CategoryFurniture />} />
+            <Route path="/categories/tires" element={<CategoryTires />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

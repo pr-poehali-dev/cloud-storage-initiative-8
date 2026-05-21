@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { Menu, Phone, Send } from "lucide-react"
+import { Menu, Phone, Send, Tag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
+import { Link } from "react-router-dom"
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false)
@@ -9,7 +10,7 @@ export function MobileMenu() {
   const menuItems = [
     { href: "#about", label: "О нас" },
     { href: "#services", label: "Услуги" },
-    { href: "#portfolio", label: "Портфолио" },
+    { href: "#portfolio", label: "Кейсы" },
     { href: "#pricing", label: "Тарифы" },
     { href: "#contact", label: "Контакты" },
   ]
@@ -28,6 +29,14 @@ export function MobileMenu() {
           <SheetDescription>Переход к разделам сайта</SheetDescription>
         </SheetHeader>
         <nav className="flex flex-col gap-1 mt-8">
+          <Link
+            to="/#categories"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2 text-base font-semibold text-primary hover:bg-primary/10 transition-all py-3 px-4 rounded-lg border-b border-border/50"
+          >
+            <Tag className="h-4 w-4 shrink-0" />
+            Товарные категории
+          </Link>
           {menuItems.map((item) => (
             <a
               key={item.href}

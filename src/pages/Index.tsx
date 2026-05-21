@@ -6,6 +6,7 @@ import { ProcessSection } from "@/components/ProcessSection"
 import { ClientTypesSection } from "@/components/ClientTypesSection"
 import { TestimonialsSection } from "@/components/TestimonialsSection"
 import { PortfolioSection } from "@/components/PortfolioSection"
+import { CategoriesSection } from "@/components/CategoriesSection"
 import { PricingSection } from "@/components/PricingSection"
 import { FaqSection } from "@/components/FaqSection"
 import { ContactSection } from "@/components/ContactSection"
@@ -23,6 +24,7 @@ export default function Index() {
       <ProcessSection />
       <ClientTypesSection />
       <TestimonialsSection />
+      <CategoriesSection />
       <PortfolioSection />
       <PricingSection />
       <FaqSection />

@@ -2,7 +2,8 @@ import { ThemeToggle } from "@/components/ThemeToggle"
 import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
-import { Phone, Send } from "lucide-react"
+import { Phone, Send, Tag } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -27,13 +28,20 @@ export function Navbar() {
             <Logo />
           </a>
 
-          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
+          <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
             <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
               О нас
             </a>
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">
               Услуги
             </a>
+            <Link
+              to="/#categories"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary border border-primary/30 rounded-full px-3 py-1 hover:bg-primary/10 transition-colors"
+            >
+              <Tag className="h-3.5 w-3.5" />
+              Категории
+            </Link>
             <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
               Кейсы
             </a>

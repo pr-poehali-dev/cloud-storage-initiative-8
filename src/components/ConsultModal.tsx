@@ -14,9 +14,10 @@ import Icon from "@/components/ui/icon"
 interface ConsultModalProps {
   open: boolean
   onOpenChange: (open: boolean) => void
+  source?: string
 }
 
-export function ConsultModal({ open, onOpenChange }: ConsultModalProps) {
+export function ConsultModal({ open, onOpenChange, source }: ConsultModalProps) {
   const [formData, setFormData] = useState({ name: "", phone: "" })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
@@ -32,7 +33,7 @@ export function ConsultModal({ open, onOpenChange }: ConsultModalProps) {
       await fetch("https://functions.poehali.dev/def8d0b8-782d-434e-8032-3b3d363b1f1b", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, package: "Кейс — консультация" }),
+        body: JSON.stringify({ ...formData, package: source || "Консультация" }),
       })
     } catch (err) {
       console.error("ConsultModal error:", err)
