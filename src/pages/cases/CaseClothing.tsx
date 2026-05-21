@@ -1,10 +1,15 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
+import { ConsultModal } from "@/components/ConsultModal"
 
 export default function CaseClothing() {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
+      <ConsultModal open={modalOpen} onOpenChange={setModalOpen} />
       <div className="px-4 sm:px-6 lg:px-8 py-12 container mx-auto max-w-3xl">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10">
           <Icon name="ArrowLeft" size={16} />
@@ -66,8 +71,8 @@ export default function CaseClothing() {
         <div className="mt-12 p-6 rounded-2xl bg-primary/5 border border-primary/20">
           <p className="font-semibold mb-1">Хотите так же?</p>
           <p className="text-sm text-muted-foreground mb-4">Оставьте заявку — разберёмся с маркировкой вместо вас.</p>
-          <Button asChild>
-            <Link to="/#contact">Получить консультацию</Link>
+          <Button onClick={() => setModalOpen(true)}>
+            Получить консультацию
           </Button>
         </div>
       </div>
