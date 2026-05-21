@@ -10,6 +10,10 @@ import NotFound from "./pages/NotFound";
 import Manufacturers from "./pages/Manufacturers";
 import Importers from "./pages/Importers";
 import Sellers from "./pages/Sellers";
+import CaseClothing from "./pages/cases/CaseClothing";
+import CaseWater from "./pages/cases/CaseWater";
+import CasePharma from "./pages/cases/CasePharma";
+import CaseDairy from "./pages/cases/CaseDairy";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -32,6 +36,10 @@ const App = () => (
             <Route path="/manufacturers" element={<Manufacturers />} />
             <Route path="/importers" element={<Importers />} />
             <Route path="/sellers" element={<Sellers />} />
+            <Route path="/cases/clothing" element={<CaseClothing />} />
+            <Route path="/cases/water" element={<CaseWater />} />
+            <Route path="/cases/pharma" element={<CasePharma />} />
+            <Route path="/cases/dairy" element={<CaseDairy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

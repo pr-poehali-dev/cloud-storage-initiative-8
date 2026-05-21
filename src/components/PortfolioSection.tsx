@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Card, CardContent } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
 
@@ -11,6 +12,7 @@ const cases = [
     tags: ["Одежда", "Обувь", "Генерация кодов", "УПД"],
     stat: "2 дня",
     statLabel: "до полного запуска",
+    href: "/cases/clothing",
   },
   {
     icon: "Droplets",
@@ -21,6 +23,7 @@ const cases = [
     tags: ["Вода", "1С", "Интеграция", "Оптовая торговля"],
     stat: "0 ошибок",
     statLabel: "при переходе",
+    href: "/cases/water",
   },
   {
     icon: "Pill",
@@ -31,6 +34,7 @@ const cases = [
     tags: ["Фармацевтика", "МДЛП", "Аптека", "Поддержка"],
     stat: "3 точки",
     statLabel: "подключено за неделю",
+    href: "/cases/pharma",
   },
   {
     icon: "Milk",
@@ -41,6 +45,7 @@ const cases = [
     tags: ["Молоко", "Фермерство", "УПД", "Сопровождение"],
     stat: "100%",
     statLabel: "без штрафов",
+    href: "/cases/dairy",
   },
 ]
 
@@ -57,34 +62,36 @@ export function PortfolioSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {cases.map((item, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center h-40 group-hover:from-primary/20 transition-all duration-500">
-                <Icon
-                  name={item.icon}
-                  size={80}
-                  className="text-primary/40 group-hover:text-primary/60 group-hover:scale-110 transition-all duration-500"
-                />
-                <div className="absolute right-5 top-1/2 -translate-y-1/2 text-right">
-                  <div className="text-3xl font-extrabold text-primary leading-tight">{item.stat}</div>
-                  <div className="text-xs text-muted-foreground font-medium mt-0.5">{item.statLabel}</div>
+            <Link key={index} to={item.href} className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl">
+              <Card className="overflow-hidden border-none shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1 h-full">
+                <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center h-40 group-hover:from-primary/20 transition-all duration-500">
+                  <Icon
+                    name={item.icon}
+                    size={80}
+                    className="text-primary/40 group-hover:text-primary/60 group-hover:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute right-5 top-1/2 -translate-y-1/2 text-right">
+                    <div className="text-3xl font-extrabold text-primary leading-tight">{item.stat}</div>
+                    <div className="text-xs text-muted-foreground font-medium mt-0.5">{item.statLabel}</div>
+                  </div>
                 </div>
-              </div>
-              <CardContent className="p-6">
-                <p className="text-sm text-primary font-semibold mb-2">{item.category}</p>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {item.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                <CardContent className="p-6">
+                  <p className="text-sm text-primary font-semibold mb-2">{item.category}</p>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="text-xl font-bold">{item.title}</h3>
+                    <Icon name="ArrowRight" size={18} className="text-primary/40 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300 shrink-0 mt-1" />
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {item.tags.map((tag, tagIndex) => (
+                      <span key={tagIndex} className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
