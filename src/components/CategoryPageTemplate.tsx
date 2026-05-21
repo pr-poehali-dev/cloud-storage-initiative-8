@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Icon from "@/components/ui/icon"
 import { ConsultModal } from "@/components/ConsultModal"
+import { Navbar } from "@/components/Navbar"
+import { Footer } from "@/components/Footer"
 
 export interface CategoryPageProps {
   icon: string
@@ -33,6 +35,7 @@ export function CategoryPageTemplate({
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <ConsultModal open={modalOpen} onOpenChange={setModalOpen} source={categorySource} />
 
       {/* Hero */}
@@ -209,6 +212,7 @@ export function CategoryPageTemplate({
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }

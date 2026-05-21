@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
 import { ConsultModal } from "@/components/ConsultModal"
+import { Navbar } from "@/components/Navbar"
+import { Footer } from "@/components/Footer"
 
 export interface CasePageProps {
   icon: string
@@ -33,6 +35,7 @@ export function CasePageTemplate({
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <ConsultModal open={modalOpen} onOpenChange={setModalOpen} source={caseSource} />
 
       {/* Hero */}
@@ -216,6 +219,7 @@ export function CasePageTemplate({
           </div>
         </section>
       )}
+      <Footer />
     </div>
   )
 }
