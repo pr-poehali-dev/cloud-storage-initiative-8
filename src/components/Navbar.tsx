@@ -36,12 +36,12 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-between">
           <a href="/" className="hover:opacity-80 transition-opacity shrink-0">
             <Logo />
           </a>
 
-          <div className="hidden md:flex items-center gap-5 mx-6">
+          <div className="hidden md:flex items-center gap-5 absolute left-1/2 -translate-x-1/2">
             <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               О нас
             </button>
