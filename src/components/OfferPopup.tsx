@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { X, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { reachGoal } from "@/lib/ym"
 
 export function OfferPopup() {
   const [visible, setVisible] = useState(false)
@@ -42,6 +43,7 @@ export function OfferPopup() {
     setSending(false)
     setSent(true)
     sessionStorage.setItem("popup_closed", "1")
+    reachGoal("popup_form_submit")
   }
 
   if (closed || !visible) return null

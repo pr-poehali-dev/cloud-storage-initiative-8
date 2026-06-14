@@ -1,5 +1,6 @@
 import type React from "react"
 import { useState } from "react"
+import { reachGoal } from "@/lib/ym"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -46,6 +47,7 @@ export function QuoteFormDialog({ packageName, variant = "default", className, c
     }
     setSending(false)
     setSent(true)
+    reachGoal("quote_form_submit")
     setTimeout(() => {
       setOpen(false)
       setSent(false)

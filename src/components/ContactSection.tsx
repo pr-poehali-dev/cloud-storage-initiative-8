@@ -1,5 +1,6 @@
 import type React from "react"
 import { useState } from "react"
+import { reachGoal } from "@/lib/ym"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -25,6 +26,7 @@ export function ContactSection() {
     setSending(false)
     setSent(true)
     setFormData({ name: "", phone: "" })
+    reachGoal("contact_form_submit")
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -119,7 +121,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Телефон</h3>
-                    <a href="tel:+74953203385" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    <a href="tel:+74953203385" onClick={() => reachGoal("phone_click")} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                       +7 (495) 320-33-85
                     </a>
                   </div>
@@ -135,7 +137,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Telegram</h3>
-                    <a href="https://t.me/Matrix1C" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    <a href="https://t.me/Matrix1C" target="_blank" rel="noopener noreferrer" onClick={() => reachGoal("telegram_click")} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                       @Matrix1C
                     </a>
                   </div>

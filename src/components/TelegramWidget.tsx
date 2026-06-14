@@ -1,4 +1,5 @@
 import { Send } from "lucide-react"
+import { reachGoal } from "@/lib/ym"
 
 export function TelegramWidget() {
   return (
@@ -6,6 +7,7 @@ export function TelegramWidget() {
       href="https://t.me/Matrix1C"
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => reachGoal("telegram_widget_click")}
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-primary text-primary-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
       aria-label="Написать в Telegram"
     >

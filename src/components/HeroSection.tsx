@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Phone } from "lucide-react"
 import { useEffect, useState } from "react"
 import Icon from "@/components/ui/icon"
+import { reachGoal } from "@/lib/ym"
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -109,6 +110,7 @@ export function HeroSection() {
 
         <a
           href="tel:+74953203385"
+          onClick={() => reachGoal("phone_click")}
           className="inline-flex sm:hidden items-center gap-2 mb-6 px-5 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-base shadow-lg shadow-primary/25 hover:bg-primary/90 transition-colors animate-fade-in-up"
         >
           <Phone className="h-4 w-4" />
@@ -121,7 +123,7 @@ export function HeroSection() {
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg group shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all"
             asChild
           >
-            <a href="#contact">
+            <a href="#contact" onClick={() => reachGoal("hero_cta_consultation")}>
               Получить консультацию
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -132,7 +134,7 @@ export function HeroSection() {
             className="border-2 border-primary/20 text-foreground hover:bg-primary/5 hover:border-primary font-semibold px-8 py-6 text-lg backdrop-blur-sm bg-transparent"
             asChild
           >
-            <a href="#pricing">Смотреть тарифы</a>
+            <a href="#pricing" onClick={() => reachGoal("hero_cta_pricing")}>Смотреть тарифы</a>
           </Button>
         </div>
 

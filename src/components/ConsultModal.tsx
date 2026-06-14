@@ -1,5 +1,6 @@
 import type React from "react"
 import { useState } from "react"
+import { reachGoal } from "@/lib/ym"
 import {
   Dialog,
   DialogContent,
@@ -41,6 +42,7 @@ export function ConsultModal({ open, onOpenChange, source }: ConsultModalProps) 
     setSending(false)
     setSent(true)
     setFormData({ name: "", phone: "" })
+    reachGoal("consult_modal_submit")
   }
 
   const handleClose = (open: boolean) => {
