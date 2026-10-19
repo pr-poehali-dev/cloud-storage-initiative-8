@@ -2,7 +2,7 @@ import { ThemeToggle } from "@/components/ThemeToggle"
 import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
-import { Phone, Send, Tag } from "lucide-react"
+import { Phone, Send, Tag, MessageCircle } from "lucide-react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { reachGoal } from "@/lib/ym"
 
@@ -86,6 +86,16 @@ export function Navbar() {
               aria-label="Telegram"
             >
               <Send className="h-4 w-4" />
+            </a>
+            <a
+              href="https://max.ru/u/f9LHodD0cOKPnAF1mqs2hoYfpye1TEtFoGWnuo4byWDQwcvscRys-LJCTYQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => reachGoal("max_click")}
+              className="hidden lg:flex items-center justify-center h-10 w-10 rounded-full bg-foreground text-background hover:bg-primary transition-colors"
+              aria-label="MAX"
+            >
+              <MessageCircle className="h-4 w-4" />
             </a>
             <ThemeToggle />
             <MobileMenu />

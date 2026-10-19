@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Menu, Phone, Send, Tag } from "lucide-react"
+import { Menu, Phone, Send, Tag, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { useNavigate, useLocation } from "react-router-dom"
@@ -76,6 +76,15 @@ export function MobileMenu() {
           >
             <Send className="h-5 w-5 shrink-0" />
             Telegram @Matrix1C
+          </a>
+          <a
+            href="https://max.ru/u/f9LHodD0cOKPnAF1mqs2hoYfpye1TEtFoGWnuo4byWDQwcvscRys-LJCTYQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-semibold hover:bg-primary/20 transition-colors"
+          >
+            <MessageCircle className="h-5 w-5 shrink-0" />
+            MAX
           </a>
         </div>
       </SheetContent>

@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Icon from "@/components/ui/icon"
+import { MessengerLinks } from "@/components/MessengerLinks"
 
 interface ConsultModalProps {
   open: boolean
@@ -19,7 +20,7 @@ interface ConsultModalProps {
 }
 
 export function ConsultModal({ open, onOpenChange, source }: ConsultModalProps) {
-  const [formData, setFormData] = useState({ name: "", phone: "" })
+  const [formData, setFormData] = useState({ phone: "" })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
@@ -41,7 +42,7 @@ export function ConsultModal({ open, onOpenChange, source }: ConsultModalProps) 
     }
     setSending(false)
     setSent(true)
-    setFormData({ name: "", phone: "" })
+    setFormData({ phone: "" })
     reachGoal("consult_modal_submit")
   }
 
@@ -56,7 +57,7 @@ export function ConsultModal({ open, onOpenChange, source }: ConsultModalProps) 
         <DialogHeader>
           <DialogTitle className="text-2xl">Получить консультацию</DialogTitle>
           <DialogDescription>
-            Оставьте имя и телефон — перезвоним и ответим на все вопросы бесплатно.
+            Оставьте телефон — перезвоним и ответим на все вопросы бесплатно.
           </DialogDescription>
         </DialogHeader>
 
@@ -73,19 +74,6 @@ export function ConsultModal({ open, onOpenChange, source }: ConsultModalProps) 
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 pt-2">
-            <div className="space-y-2">
-              <label htmlFor="modal-name" className="text-sm font-medium">
-                Имя *
-              </label>
-              <Input
-                id="modal-name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Ваше имя"
-                required
-              />
-            </div>
             <div className="space-y-2">
               <label htmlFor="modal-phone" className="text-sm font-medium">
                 Телефон *
@@ -104,6 +92,7 @@ export function ConsultModal({ open, onOpenChange, source }: ConsultModalProps) 
               <Icon name="Send" size={16} className="mr-2" />
               {sending ? "Отправляем..." : "Отправить заявку"}
             </Button>
+            <MessengerLinks place="consult_modal" />
           </form>
         )}
       </DialogContent>

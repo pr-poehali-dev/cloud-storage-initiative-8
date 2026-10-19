@@ -51,7 +51,9 @@ def handler(event: dict, context) -> dict:
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
 
     if recipient and smtp_host and smtp_user and smtp_password:
-        lines = [f"Имя: {name}", f"Телефон: {phone}"]
+        lines = [f"Телефон: {phone}"]
+        if name:
+            lines.insert(0, f"Имя: {name}")
         if email:
             lines.append(f"Email: {email}")
         if company:
@@ -62,7 +64,7 @@ def handler(event: dict, context) -> dict:
             lines.append(f"Сообщение: {message}")
 
         msg = MIMEMultipart()
-        msg["Subject"] = f"Новая заявка с сайта — {name}"
+        msg["Subject"] = f"Новая заявка с сайта — {name or phone}"
         msg["From"] = smtp_user
         msg["To"] = recipient
         msg.attach(MIMEText("\n".join(lines), "plain", "utf-8"))
@@ -72,7 +74,10 @@ def handler(event: dict, context) -> dict:
             smtp.login(smtp_user, smtp_password)
             smtp.sendmail(smtp_user, [recipient], msg.as_string())
 
-    tg_lines = ["🔔 <b>Новая заявка с сайта!</b>", f"👤 Имя: {name}", f"📞 Телефон: {phone}"]
+    tg_lines = ["🔔 <b>Новая заявка с сайта!</b>"]
+    if name:
+        tg_lines.append(f"👤 Имя: {name}")
+    tg_lines.append(f"📞 Телефон: {phone}")
     if email:
         tg_lines.append(f"📧 Email: {email}")
     if company:

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { MessengerLinks } from "@/components/MessengerLinks"
 
 interface QuoteFormDialogProps {
   packageName?: string
@@ -24,7 +25,7 @@ export function QuoteFormDialog({ packageName, variant = "default", className, c
   const [open, setOpen] = useState(false)
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
-  const [formData, setFormData] = useState({ name: "", phone: "" })
+  const [formData, setFormData] = useState({ phone: "" })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,7 +33,6 @@ export function QuoteFormDialog({ packageName, variant = "default", className, c
     try {
       const text = [
         `📋 *Новая заявка с сайта*`,
-        `👤 Имя: ${formData.name}`,
         `📞 Телефон: ${formData.phone}`,
         packageName ? `📦 Тариф: ${packageName}` : "",
       ].filter(Boolean).join("\n")
@@ -51,7 +51,7 @@ export function QuoteFormDialog({ packageName, variant = "default", className, c
     setTimeout(() => {
       setOpen(false)
       setSent(false)
-      setFormData({ name: "", phone: "" })
+      setFormData({ phone: "" })
     }, 2000)
   }
 
@@ -79,17 +79,6 @@ export function QuoteFormDialog({ packageName, variant = "default", className, c
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Имя *</Label>
-              <Input
-                id="name"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Ваше имя"
-              />
-            </div>
-
-            <div className="space-y-2">
               <Label htmlFor="phone">Телефон *</Label>
               <Input
                 id="phone"
@@ -109,6 +98,7 @@ export function QuoteFormDialog({ packageName, variant = "default", className, c
                 {sending ? "Отправляем..." : "Отправить"}
               </Button>
             </div>
+            <MessengerLinks place="quote_form" />
           </form>
         )}
       </DialogContent>

@@ -1,13 +1,14 @@
 import type React from "react"
 import { useState } from "react"
 import { reachGoal } from "@/lib/ym"
+import { MessengerLinks } from "@/components/MessengerLinks"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Mail, Phone, Clock, Send, MessageCircle } from "lucide-react"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({ name: "", phone: "" })
+  const [formData, setFormData] = useState({ phone: "" })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
@@ -25,7 +26,7 @@ export function ContactSection() {
     }
     setSending(false)
     setSent(true)
-    setFormData({ name: "", phone: "" })
+    setFormData({ phone: "" })
     reachGoal("contact_form_submit")
   }
 
@@ -47,7 +48,7 @@ export function ContactSection() {
             Давайте <span className="text-primary">разберёмся вместе</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Оставьте имя и телефон — перезвоним и ответим на все вопросы бесплатно.
+            Оставьте телефон — перезвоним и ответим на все вопросы бесплатно.
           </p>
         </div>
 
@@ -58,19 +59,6 @@ export function ContactSection() {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Имя *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Ваше имя"
-                    required
-                  />
-                </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium">
                     Телефон *
@@ -94,6 +82,7 @@ export function ContactSection() {
                   <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   {sending ? "Отправляем..." : "Отправить"}
                 </Button>
+                <MessengerLinks place="contact_form" />
               </form>
             </CardContent>
           </Card>

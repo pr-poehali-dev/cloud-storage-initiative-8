@@ -4,11 +4,12 @@ import { X, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { reachGoal } from "@/lib/ym"
+import { MessengerLinks } from "@/components/MessengerLinks"
 
 export function OfferPopup() {
   const [visible, setVisible] = useState(false)
   const [closed, setClosed] = useState(false)
-  const [formData, setFormData] = useState({ name: "", phone: "" })
+  const [formData, setFormData] = useState({ phone: "" })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
@@ -72,13 +73,6 @@ export function OfferPopup() {
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Ваше имя"
-                required
-              />
-              <Input
                 name="phone"
                 type="tel"
                 value={formData.phone}
@@ -90,6 +84,7 @@ export function OfferPopup() {
                 <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 {sending ? "Отправляем..." : "Получить бесплатный аудит"}
               </Button>
+              <MessengerLinks place="popup" />
             </form>
             <p className="text-xs text-muted-foreground mt-4 text-center">
               Перезвоним в течение рабочего дня
