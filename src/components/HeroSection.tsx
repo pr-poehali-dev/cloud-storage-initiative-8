@@ -5,8 +5,8 @@ import { reachGoal } from "@/lib/ym"
 
 export function HeroSection() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 pt-2 pb-8">
-      <div className="container mx-auto max-w-7xl relative overflow-hidden rounded-[2rem] bg-card shadow-sm px-6 sm:px-12 py-12 lg:py-16">
+    <section className="px-2 sm:px-4 pt-2 pb-8">
+      <div className="w-full max-w-[1800px] mx-auto relative overflow-hidden rounded-[2rem] bg-card shadow-sm px-6 sm:px-12 lg:px-16 py-12 lg:py-20">
         <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-primary/15 blur-3xl pointer-events-none" />
         <div className="relative grid lg:grid-cols-2 gap-10 items-center">
           <div>
