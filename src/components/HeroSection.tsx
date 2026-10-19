@@ -22,7 +22,7 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl uppercase leading-[1.05] mb-6 text-balance">
-              Маркировка <span className="text-primary">без стресса</span>
+              Техподдержка <span className="text-primary">Честного знака</span>
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
