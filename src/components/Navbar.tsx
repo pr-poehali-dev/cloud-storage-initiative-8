@@ -36,7 +36,8 @@ export function Navbar() {
         isScrolled ? "bg-background/90 backdrop-blur-lg shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-2 sm:px-4">
+        <div className="w-full max-w-[1800px] mx-auto px-6 sm:px-12 lg:px-16">
         <div className="relative flex h-16 items-center justify-between">
           <a href="/" className="hover:opacity-80 transition-opacity shrink-0">
             <Logo />
@@ -89,6 +90,7 @@ export function Navbar() {
             <ThemeToggle />
             <MobileMenu />
           </div>
+        </div>
         </div>
       </div>
     </nav>
