@@ -6,7 +6,7 @@ import { reachGoal } from "@/lib/ym"
 export function HeroSection() {
   return (
     <section className="px-2 sm:px-4 pt-2 pb-8">
-      <div className="w-full max-w-[1800px] mx-auto relative overflow-hidden rounded-[2rem] bg-card shadow-sm px-6 sm:px-12 lg:px-16 py-12 lg:py-20">
+      <div className="w-full max-w-[1800px] mx-auto relative overflow-hidden rounded-[2rem] bg-card shadow-sm px-6 sm:px-12 lg:px-16 py-8 lg:py-10">
         <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-primary/15 blur-3xl pointer-events-none" />
         <div className="relative grid lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -21,18 +21,18 @@ export function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl uppercase leading-[1.05] mb-6 text-balance">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl uppercase leading-[1.05] mb-4 text-balance">
               Техподдержка <span className="text-primary">Честного знака</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-5 max-w-xl leading-relaxed">
               Генерируем коды маркировки, оформляем УПД и берём на себя всю работу с «Честным знаком» — вы занимаетесь бизнесом.
             </p>
 
             <a
               href="tel:+74953203385"
               onClick={() => reachGoal("phone_click")}
-              className="inline-flex items-center gap-3 mb-8 text-2xl sm:text-3xl font-extrabold hover:text-primary transition-colors"
+              className="inline-flex items-center gap-3 mb-5 text-2xl sm:text-3xl font-extrabold hover:text-primary transition-colors"
             >
               <span className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground">
                 <Phone className="h-5 w-5" />
@@ -52,7 +52,7 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+            <div className="mt-6 grid grid-cols-3 gap-4 max-w-lg">
               <div>
                 <div className="text-2xl sm:text-3xl font-extrabold text-primary">200+</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">клиентов</div>
@@ -69,7 +69,7 @@ export function HeroSection() {
           </div>
 
           <div className="relative">
-            <div className="relative rounded-[2rem] bg-muted overflow-hidden aspect-square max-w-md mx-auto lg:max-w-none">
+            <div className="relative rounded-[2rem] bg-muted overflow-hidden aspect-[4/3] max-w-md mx-auto lg:max-w-none">
               <img
                 src="https://cdn.poehali.dev/projects/a5fdd0d1-9566-4dd5-91f1-212c6efddd90/files/17d96be8-f95c-442f-af80-69ead6c9d273.jpg"
                 alt="Маркировка товаров"
