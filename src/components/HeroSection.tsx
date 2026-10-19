@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Phone } from "lucide-react"
+import { ArrowRight, Phone, Send, MessageCircle } from "lucide-react"
 import Icon from "@/components/ui/icon"
 import { reachGoal } from "@/lib/ym"
 
@@ -50,6 +50,30 @@ export function HeroSection() {
               <Button size="lg" variant="outline" className="rounded-full px-8 font-bold bg-background" asChild>
                 <a href="#pricing" onClick={() => reachGoal("hero_cta_pricing")}>Смотреть тарифы</a>
               </Button>
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <span className="text-sm font-semibold text-muted-foreground">Написать нам:</span>
+              <a
+                href="https://t.me/Matrix1C"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => reachGoal("hero_telegram_click")}
+                className="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-bold hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <Send className="h-4 w-4" />
+                Telegram
+              </a>
+              <a
+                href="https://max.ru/u/f9LHodD0cOKPnAF1mqs2hoYfpye1TEtFoGWnuo4byWDQwcvscRys-LJCTYQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => reachGoal("hero_max_click")}
+                className="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-bold hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" />
+                MAX
+              </a>
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-4 max-w-lg">
