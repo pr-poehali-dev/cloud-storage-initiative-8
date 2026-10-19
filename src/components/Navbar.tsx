@@ -33,7 +33,7 @@ export function Navbar() {
   return (
     <nav
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background/90 backdrop-blur-lg shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +51,7 @@ export function Navbar() {
             </button>
             <button
               onClick={() => scrollToSection("categories")}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary border border-primary/30 rounded-full px-3 py-1 hover:bg-primary/10 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-primary bg-primary/10 rounded-full px-3 py-1.5 hover:bg-primary/20 transition-colors whitespace-nowrap"
             >
               <Tag className="h-3.5 w-3.5 shrink-0" />
               Категории
@@ -71,9 +71,9 @@ export function Navbar() {
             <a
               href="tel:+74953203385"
               onClick={() => reachGoal("phone_click")}
-              className="hidden lg:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors whitespace-nowrap"
+              className="hidden lg:flex items-center gap-2 text-sm font-bold text-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
-              <Phone className="h-4 w-4" />
+              <Phone className="h-4 w-4 text-primary" />
               +7 (495) 320-33-85
             </a>
             <a
@@ -81,10 +81,10 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => reachGoal("telegram_click")}
-              className="hidden lg:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              className="hidden lg:flex items-center justify-center h-10 w-10 rounded-full bg-foreground text-background hover:bg-primary transition-colors"
+              aria-label="Telegram"
             >
               <Send className="h-4 w-4" />
-              Telegram
             </a>
             <ThemeToggle />
             <MobileMenu />
