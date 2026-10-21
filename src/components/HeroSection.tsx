@@ -47,9 +47,6 @@ export function HeroSection() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-8 font-bold bg-background" asChild>
-                <a href="#pricing" onClick={() => reachGoal("hero_cta_pricing")}>Смотреть тарифы</a>
-              </Button>
             </div>
 
             <div className="mt-4 flex flex-wrap items-center gap-3">

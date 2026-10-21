@@ -43,7 +43,7 @@ export function Navbar() {
             <Logo />
           </a>
 
-          <div className="hidden md:flex items-center gap-5 absolute left-1/2 -translate-x-1/2">
+          <div className="hidden md:flex items-center gap-5 flex-1 ml-8 lg:ml-10">
             <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               О нас
             </button>
