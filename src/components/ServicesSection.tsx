@@ -1,5 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
+import { useState } from "react"
+import { ConsultModal } from "@/components/ConsultModal"
+import { reachGoal } from "@/lib/ym"
 
 const services = [
   {
@@ -41,6 +44,15 @@ const services = [
 ]
 
 export function ServicesSection() {
+  const [open, setOpen] = useState(false)
+  const [source, setSource] = useState("")
+
+  const handleOpen = (title: string) => {
+    setSource(`Услуга: ${title}`)
+    setOpen(true)
+    reachGoal("service_card_click")
+  }
+
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 animate-pulse" />
@@ -61,7 +73,16 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-background/50 backdrop-blur-sm"
+              role="button"
+              tabIndex={0}
+              onClick={() => handleOpen(service.title)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  handleOpen(service.title)
+                }
+              }}
+              className="cursor-pointer group hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-background/50 backdrop-blur-sm"
             >
               <CardHeader>
                 <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
@@ -76,6 +97,7 @@ export function ServicesSection() {
           ))}
         </div>
       </div>
+      <ConsultModal open={open} onOpenChange={setOpen} source={source} />
     </section>
   )
 }
