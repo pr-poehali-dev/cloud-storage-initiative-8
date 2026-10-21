@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
-const SITE = "https://1cmatrix.poehali.dev"
+const SITE = "https://1c-matrix.ru"
 const NAME = "1C Matrix"
 
 const pages: Record<string, { title: string; description: string }> = {
