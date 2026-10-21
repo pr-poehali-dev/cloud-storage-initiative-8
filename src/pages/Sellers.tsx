@@ -157,7 +157,7 @@ export default function Sellers() {
               Получить консультацию
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="tel:+74953203385">+7 (495) 320-33-85</a>
+              <a href="tel:+74950683688">+7 (495) 068-36-88</a>
             </Button>
           </div>
         </div>

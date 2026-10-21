@@ -190,7 +190,7 @@ export function CasePageTemplate({
               Оставить заявку
             </Button>
             <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <a href="tel:+74953203385">
+              <a href="tel:+74950683688">
                 <Icon name="Phone" size={16} className="mr-2" />
                 Позвонить
               </a>

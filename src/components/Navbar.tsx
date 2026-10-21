@@ -66,12 +66,12 @@ export function Navbar() {
 
           <div className="flex items-center gap-3 shrink-0">
             <a
-              href="tel:+74953203385"
+              href="tel:+74950683688"
               onClick={() => reachGoal("phone_click")}
               className="hidden lg:flex items-center gap-2 text-sm font-bold text-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               <Phone className="h-4 w-4 text-primary" />
-              +7 (495) 320-33-85
+              +7 (495) 068-36-88
             </a>
             <a
               href="https://t.me/Matrix1C"

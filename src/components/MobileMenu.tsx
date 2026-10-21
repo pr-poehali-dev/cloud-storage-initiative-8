@@ -56,11 +56,11 @@ export function MobileMenu() {
         </nav>
         <div className="mt-8 pt-6 border-t border-border flex flex-col gap-3">
           <a
-            href="tel:+74953203385"
+            href="tel:+74950683688"
             className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-semibold hover:bg-primary/20 transition-colors"
           >
             <Phone className="h-5 w-5 shrink-0" />
-            +7 (495) 320-33-85
+            +7 (495) 068-36-88
           </a>
           <a
             href="https://t.me/Matrix1C"

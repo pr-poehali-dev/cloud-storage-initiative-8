@@ -67,9 +67,9 @@ export function CategoryPageTemplate({
               Получить консультацию
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="tel:+74953203385">
+              <a href="tel:+74950683688">
                 <Icon name="Phone" size={16} className="mr-2" />
-                +7 (495) 320-33-85
+                +7 (495) 068-36-88
               </a>
             </Button>
           </div>
@@ -204,7 +204,7 @@ export function CategoryPageTemplate({
               Оставить заявку
             </Button>
             <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <a href="tel:+74953203385">
+              <a href="tel:+74950683688">
                 <Icon name="Phone" size={16} className="mr-2" />
                 Позвонить
               </a>

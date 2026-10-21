@@ -110,8 +110,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Телефон</h3>
-                    <a href="tel:+74953203385" onClick={() => reachGoal("phone_click")} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                      +7 (495) 320-33-85
+                    <a href="tel:+74950683688" onClick={() => reachGoal("phone_click")} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      +7 (495) 068-36-88
                     </a>
                   </div>
                 </div>

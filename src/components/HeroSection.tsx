@@ -30,14 +30,14 @@ export function HeroSection() {
             </p>
 
             <a
-              href="tel:+74953203385"
+              href="tel:+74950683688"
               onClick={() => reachGoal("phone_click")}
               className="inline-flex items-center gap-3 mb-5 text-2xl sm:text-3xl font-extrabold hover:text-primary transition-colors"
             >
               <span className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground">
                 <Phone className="h-5 w-5" />
               </span>
-              +7 (495) 320-33-85
+              +7 (495) 068-36-88
             </a>
 
             <div className="flex flex-col sm:flex-row gap-3">
