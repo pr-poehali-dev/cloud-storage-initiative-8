@@ -2,7 +2,7 @@ import { ThemeToggle } from "@/components/ThemeToggle"
 import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
-import { Phone, Send, Tag, MessageCircle } from "lucide-react"
+import { Phone, Send, MessageCircle } from "lucide-react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { reachGoal } from "@/lib/ym"
 
@@ -50,11 +50,7 @@ export function Navbar() {
             <button onClick={() => scrollToSection("services")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               Услуги
             </button>
-            <button
-              onClick={() => scrollToSection("categories")}
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-primary bg-primary/10 rounded-full px-3 py-1.5 hover:bg-primary/20 transition-colors whitespace-nowrap"
-            >
-              <Tag className="h-3.5 w-3.5 shrink-0" />
+            <button onClick={() => scrollToSection("categories")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
               Категории
             </button>
             <button onClick={() => scrollToSection("portfolio")} className="text-sm font-medium hover:text-primary transition-colors whitespace-nowrap">
