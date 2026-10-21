@@ -1,5 +1,5 @@
 User-agent: *
-Disallow:
 Allow: /
 
+Host: https://1cmatrix.poehali.dev
 Sitemap: https://1cmatrix.poehali.dev/sitemap.xml

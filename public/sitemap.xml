@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://1cmatrix.poehali.dev/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/manufacturers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/importers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/sellers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/cases/clothing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/cases/water</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/cases/pharma</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/cases/dairy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/clothing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/water</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/pharma</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/dairy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/tobacco</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/perfume</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/furniture</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://1cmatrix.poehali.dev/categories/tires</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
