@@ -64,6 +64,23 @@ export function AboutSection() {
           ))}
         </div>
 
+        <div className="grid md:grid-cols-2 gap-10 items-center mb-16">
+          <img
+            src="https://cdn.poehali.dev/projects/a5fdd0d1-9566-4dd5-91f1-212c6efddd90/files/eed0139c-e875-4d0e-8579-ec472aa9a469.jpg"
+            alt="Маркированная одежда с кодами DataMatrix"
+            loading="lazy"
+            className="w-full h-72 md:h-96 object-cover rounded-3xl shadow-lg"
+          />
+          <div>
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-balance">
+              Берём маркировку на себя — вы занимаетесь <span className="text-primary">бизнесом</span>
+            </h3>
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              Подключаем к «Честному знаку», выпускаем коды DataMatrix, оформляем документы и сопровождаем каждую отгрузку. Без штрафов и простоев.
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group cursor-default">

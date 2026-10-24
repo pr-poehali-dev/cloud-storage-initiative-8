@@ -45,6 +45,12 @@ export function ProcessSection() {
           </p>
         </div>
 
+        <img
+          src="https://cdn.poehali.dev/projects/a5fdd0d1-9566-4dd5-91f1-212c6efddd90/files/79c138c5-4b91-418d-b532-97da14716857.jpg"
+          alt="Специалист консультирует клиента по маркировке"
+          loading="lazy"
+          className="w-full h-56 sm:h-72 object-cover object-top rounded-3xl mb-10 shadow-lg"
+        />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {steps.map((step, index) => (
             <Fragment key={index}>

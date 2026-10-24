@@ -66,6 +66,12 @@ export function ServicesSection() {
             Берём на себя полный цикл работы с маркировкой — от регистрации в системе до ежедневного сопровождения.
           </p>
         </div>
+        <img
+          src="https://cdn.poehali.dev/projects/a5fdd0d1-9566-4dd5-91f1-212c6efddd90/files/7317fe62-507a-410b-a604-0002454159a8.jpg"
+          alt="Сканирование кода маркировки Честный знак на складе"
+          loading="lazy"
+          className="w-full h-56 sm:h-80 object-cover rounded-3xl mb-10 shadow-lg"
+        />
         <div className="divide-y border-y">
           {services.map((service, index) => (
             <div
