@@ -1,4 +1,3 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
 import { useState } from "react"
 import { ConsultModal } from "@/components/ConsultModal"
@@ -54,47 +53,46 @@ export function ServicesSection() {
   }
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 animate-pulse" />
-
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="flex justify-center mb-4">
-          <div className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
-            Наши услуги
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/40">
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+              Наши услуги
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">
+              Всё для работы с <span className="text-primary">Честным знаком</span>
+            </h2>
+            <p className="text-muted-foreground text-pretty leading-relaxed text-lg">
+              Берём на себя полный цикл работы с маркировкой — от регистрации в системе до ежедневного сопровождения.
+            </p>
           </div>
-        </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
-          Всё для работы с <span className="text-primary">Честным знаком</span>
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed text-lg">
-          Берём на себя полный цикл работы с маркировкой — от регистрации в системе до ежедневного сопровождения.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              role="button"
-              tabIndex={0}
-              onClick={() => handleOpen(service.title)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault()
-                  handleOpen(service.title)
-                }
-              }}
-              className="cursor-pointer group hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-background/50 backdrop-blur-sm"
-            >
-              <CardHeader>
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  <Icon name={service.icon} className="h-6 w-6" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                role="button"
+                tabIndex={0}
+                onClick={() => handleOpen(service.title)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    handleOpen(service.title)
+                  }
+                }}
+                className="cursor-pointer group relative rounded-2xl border bg-background p-6 transition-all duration-300 hover:border-primary hover:shadow-lg"
+              >
+                <span className="absolute top-4 right-5 text-4xl font-extrabold text-primary/10 group-hover:text-primary/20 transition-colors">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="mb-4 inline-flex p-3 rounded-xl bg-primary text-primary-foreground">
+                  <Icon name={service.icon} className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
-              </CardContent>
-            </Card>
-          ))}
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <ConsultModal open={open} onOpenChange={setOpen} source={source} />
