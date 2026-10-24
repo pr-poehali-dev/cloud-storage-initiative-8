@@ -53,46 +53,50 @@ export function ServicesSection() {
   }
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/40">
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-              Наши услуги
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">
-              Всё для работы с <span className="text-primary">Честным знаком</span>
-            </h2>
-            <p className="text-muted-foreground text-pretty leading-relaxed text-lg">
-              Берём на себя полный цикл работы с маркировкой — от регистрации в системе до ежедневного сопровождения.
-            </p>
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-12">
+          <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+            Наши услуги
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                role="button"
-                tabIndex={0}
-                onClick={() => handleOpen(service.title)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault()
-                    handleOpen(service.title)
-                  }
-                }}
-                className="cursor-pointer group relative rounded-2xl border bg-background p-6 transition-all duration-300 hover:border-primary hover:shadow-lg"
-              >
-                <span className="absolute top-4 right-5 text-4xl font-extrabold text-primary/10 group-hover:text-primary/20 transition-colors">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="mb-4 inline-flex p-3 rounded-xl bg-primary text-primary-foreground">
-                  <Icon name={service.icon} className="h-5 w-5" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-balance">
+            Всё для работы с <span className="text-primary">Честным знаком</span>
+          </h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed text-lg">
+            Берём на себя полный цикл работы с маркировкой — от регистрации в системе до ежедневного сопровождения.
+          </p>
+        </div>
+        <div className="divide-y border-y">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              role="button"
+              tabIndex={0}
+              onClick={() => handleOpen(service.title)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  handleOpen(service.title)
+                }
+              }}
+              className="cursor-pointer group flex items-start gap-4 sm:gap-8 py-6 px-2 sm:px-4 transition-colors hover:bg-primary/5"
+            >
+              <span className="hidden sm:block w-12 shrink-0 text-3xl font-extrabold text-primary/30 group-hover:text-primary transition-colors">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="shrink-0 p-3 rounded-full border-2 border-primary/30 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
+                <Icon name={service.icon} className="h-6 w-6" />
               </div>
-            ))}
-          </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xl font-semibold mb-1">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+              </div>
+              <Icon
+                name="ArrowRight"
+                className="hidden sm:block h-6 w-6 mt-3 shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all"
+              />
+            </div>
+          ))}
         </div>
       </div>
       <ConsultModal open={open} onOpenChange={setOpen} source={source} />
